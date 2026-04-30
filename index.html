@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="auth-overlay">
+    <div class="auth-box">
+      <h1 class="auth-title">JTD</h1>
+      <p class="auth-subtitle">Training Dashboard</p>
+      <div class="auth-input-row">
+        <input type="password" id="auth-input" placeholder="Password" autocomplete="off" />
+        <button id="auth-btn">→</button>
+      </div>
+      <p class="auth-error" id="auth-error"></p>
+    </div>
+  </div>
+
+  <style>
+    #auth-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #F7F6F2;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .auth-box { text-align: center; }
+    .auth-title {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 2.4rem; color: #1a1a1a; margin: 0 0 4px;
+    }
+    .auth-subtitle {
+      font-family: 'DM Mono', monospace; font-size: 12px;
+      color: #888; margin: 0 0 28px; font-weight: 400;
+    }
+    .auth-input-row { display: flex; gap: 8px; justify-content: center; }
+    #auth-input {
+      font-family: 'DM Mono', monospace; font-size: 14px;
+      padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px;
+      background: #fff; color: #1a1a1a; width: 200px;
+      outline: none; transition: border-color 0.15s;
+    }
+    #auth-input:focus { border-color: #4A6FA8; }
+    #auth-btn {
+      font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+      padding: 10px 16px; border: none; border-radius: 6px;
+      background: #4A6FA8; color: #fff; cursor: pointer;
+      transition: background 0.15s;
+    }
+    #auth-btn:hover { background: #3b5d8a; }
+    .auth-error {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: #E8705A; margin: 12px 0 0; min-height: 16px;
+    }
+    #app.auth-hidden { display: none; }
+  </style>
+
+  <div id="app" class="auth-hidden">
+    <header>
+      <div class="header-top">
+        <h1 class="header-title">JTD</h1>
+        <div class="header-meta" id="header-meta"></div>
+      </div>
+    </header>
+
+    <main>
+      <div class="controls">
+        <div class="view-toggle" id="view-toggle">
+          <button class="toggle-btn active" data-view="day">Day</button>
+          <button class="toggle-btn" data-view="week">Week</button>
+          <button class="toggle-btn" data-view="month">Month</button>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+
+      <div class="chart-wrapper">
+        <div class="chart-scroll" id="chart-scroll">
+          <canvas id="chart-canvas"></canvas>
+        </div>
+      </div>
+
+      <div class="detail-panel" id="detail-panel"></div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const HASH = '48b063e2f0644ad876f9b29050470ab00d62ee407915d6a8a6f9ac44945d253d';
+      const overlay = document.getElementById('auth-overlay');
+      const app = document.getElementById('app');
+
+      function unlock() {
+        overlay.remove();
+        app.classList.remove('auth-hidden');
+      }
+
+      if (sessionStorage.getItem('jtd-auth') === 'ok') { unlock(); }
+      else {
+        const input = document.getElementById('auth-input');
+        const btn = document.getElementById('auth-btn');
+        const err = document.getElementById('auth-error');
+
+        async function check() {
+          const pw = input.value;
+          const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+          const hex = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+          if (hex === HASH) {
+            sessionStorage.setItem('jtd-auth', 'ok');
+            unlock();
+          } else {
+            err.textContent = 'Incorrect password';
+            input.value = '';
+            input.focus();
+          }
+        }
+
+        btn.addEventListener('click', check);
+        input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+        input.focus();
+      }
+    })();
+  </script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
