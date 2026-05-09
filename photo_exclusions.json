@@ -1,0 +1,646 @@
+{
+  "generated_at": "2026-05-09T22:15:13.511493+00:00",
+  "cutoff": "2026-04-18T00:00:00+00:00",
+  "source_extract": "2026-05-03T23:50:08.009824+00:00",
+  "excluded": [
+    {
+      "strava_unique_id": "a4529d74-9da9-431d-9025-7ed2315ded4c",
+      "activity_id": 16654234859,
+      "activity_name": "MOBO FeetFocus",
+      "activity_date": "2025-12-05",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-05T06:28:16Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "c69be8e6-12dc-4711-80ff-d2e054d45710",
+      "activity_id": 16659016872,
+      "activity_name": "Day 2",
+      "activity_date": "2025-12-05",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-05T18:18:53Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "610ab1d5-3ad8-4626-9b18-ac0fd8546f36",
+      "activity_id": 16687171812,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2025-12-08",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-08T19:12:58Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "1ec2d60f-382f-497a-94fd-f391f6d04ff6",
+      "activity_id": 16706572985,
+      "activity_name": "Hip and Glute Accessories",
+      "activity_date": "2025-12-10",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-10T19:23:01Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "f6cc5080-2b1f-445a-9827-0f04e5973961",
+      "activity_id": 16700512355,
+      "activity_name": "Toepro",
+      "activity_date": "2025-12-10",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-10T06:12:42Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "39f77a9d-ba1b-4437-9255-b598b4f66b41",
+      "activity_id": 16723723705,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2025-12-12",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-12T17:23:23Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "41a1b768-2e08-415e-a326-f0c8bf764d2e",
+      "activity_id": 16722738319,
+      "activity_name": "MOBO FeetFocus",
+      "activity_date": "2025-12-12",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-12T15:14:08Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "e45cef11-1fea-434f-b913-02e5ea8bf3e0",
+      "activity_id": 16751443262,
+      "activity_name": "Gyn Day 1",
+      "activity_date": "2025-12-15",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-15T19:22:55Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "0a752da8-ed76-47ef-bbd7-2c13fc9619ac",
+      "activity_id": 16770290493,
+      "activity_name": "Hip and Glute Accessories",
+      "activity_date": "2025-12-17",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-17T19:28:25Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "47616f41-cad4-47ac-a604-3993c6e212ef",
+      "activity_id": 16764443128,
+      "activity_name": "Toepro",
+      "activity_date": "2025-12-17",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-17T06:10:58Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "2eb4b925-3973-47f7-9166-9cc7940b694d",
+      "activity_id": 16782214386,
+      "activity_name": "MOBO FeetFocus",
+      "activity_date": "2025-12-19",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-19T06:37:17Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "ca3cd8db-5430-4065-9786-325fed3c0153",
+      "activity_id": 16792192533,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2025-12-20",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-20T11:33:09Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "c7346167-146a-4803-abe9-e2925d3e6eb2",
+      "activity_id": 16809423931,
+      "activity_name": "Gyn Day 1",
+      "activity_date": "2025-12-22",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-22T10:42:35Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "9e1af057-0721-4059-b043-7e840cc75ae6",
+      "activity_id": 16852526589,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2025-12-27",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-27T10:53:23Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "4165866d-1fd8-4ee2-ab67-a641af4a6cf1",
+      "activity_id": 16874411374,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2025-12-29",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-29T14:36:04Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "db4c1946-d325-48a3-96f9-62f7aaf35e88",
+      "activity_id": 16892119047,
+      "activity_name": "Toepro",
+      "activity_date": "2025-12-31",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2025-12-31T10:44:03Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "0a6d2c28-9997-4ec5-82f5-22e84a853b36",
+      "activity_id": 16913571113,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-01-02",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-02T15:28:16Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "76c29e6b-b227-4248-954f-4a0797b7a119",
+      "activity_id": 16970530426,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-01-05",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-07T18:09:31Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "4e281f27-4452-492d-80a6-eec82bebf1ec",
+      "activity_id": 16971060977,
+      "activity_name": "Toepro",
+      "activity_date": "2026-01-07",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-07T18:55:59Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "1d38c421-e1a7-41a5-916f-6c10bd37bbeb",
+      "activity_id": 17004303294,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-01-10",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-10T19:16:49Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "7deb8cc7-6daf-45c8-8435-849906c352f4",
+      "activity_id": 17048912355,
+      "activity_name": "Toepro",
+      "activity_date": "2026-01-14",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-14T17:11:11Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "4509ff6b-8c16-43e5-8e20-1c0619b3fdc1",
+      "activity_id": 17072253322,
+      "activity_name": "MOBO FeetFocus",
+      "activity_date": "2026-01-16",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-16T18:14:04Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "d945e0c8-717a-4233-bab5-4c3e49b11330",
+      "activity_id": 17118104131,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-01-20",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-20T18:00:00Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "e05a08be-0171-4a53-9494-998037b8b83b",
+      "activity_id": 17131893487,
+      "activity_name": "Toepro",
+      "activity_date": "2026-01-21",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-21T20:57:35Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "0eaf5e5f-c23b-419b-bd5e-06970fe6612f",
+      "activity_id": 17159585544,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-01-23",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-24T11:53:15Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "b557d9fb-6b8a-48d0-8050-428bc68024fd",
+      "activity_id": 17146405928,
+      "activity_name": "MOBO FeetFocus",
+      "activity_date": "2026-01-23",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-23T05:53:14Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "0578cf93-d926-4fad-b2e3-1d4da1d8c2b6",
+      "activity_id": 17184805995,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-01-26",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-26T17:57:58Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "bf16e960-05c0-4ac9-a186-68ef58bae702",
+      "activity_id": 17190108804,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-01-27",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-27T05:45:06Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "ffac49bd-3c36-4da6-ac46-b72305d1a638",
+      "activity_id": 17209674394,
+      "activity_name": "Toepro",
+      "activity_date": "2026-01-28",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-28T20:20:50Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "7522687c-c6ad-4221-af7d-dd202236d9a0",
+      "activity_id": 17224016649,
+      "activity_name": "MOBO FeetFocus 2",
+      "activity_date": "2026-01-30",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-30T05:23:59Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "e878280c-b9b4-4202-b646-bb3a2e440463",
+      "activity_id": 17228930104,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-01-30",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-01-30T16:34:24Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "195aa341-f6f6-4cdd-b4b2-b60babefc9f5",
+      "activity_id": 17259103433,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-02-02",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-02T11:42:51Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "8ec1363c-c422-404e-bacf-e6ff48e3d62d",
+      "activity_id": 17273194901,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-02-03",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-03T16:09:26Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "b0e38c6b-a69e-409e-8df8-1e7cd2263db1",
+      "activity_id": 17288118782,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-02-04",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-04T20:25:24Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "f1832bf6-7ab9-4305-9847-c336f9b8df06",
+      "activity_id": 17288631524,
+      "activity_name": "Toepro",
+      "activity_date": "2026-02-04",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-04T21:22:52Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "441e8381-56f8-4cd3-aa1a-1be71dcb6b90",
+      "activity_id": 17342711935,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-02-09",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-09T19:31:33Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "55a66cf8-7f37-4a4f-956f-dff9c985af74",
+      "activity_id": 17359006694,
+      "activity_name": "Toepro",
+      "activity_date": "2026-02-11",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-11T06:20:10Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "75685fe8-f2d1-45bf-8c78-5ec55939572a",
+      "activity_id": 17386119345,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-02-13",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-13T17:27:19Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "2412ff96-b569-4c50-8f39-798aa967e0f7",
+      "activity_id": 17418527563,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-02-16",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-16T18:06:51Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "89ca8aa2-b61f-4d7a-88e7-e05ac6f8024a",
+      "activity_id": 17423876300,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-02-17",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-17T06:29:34Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "42e1c81b-cdf3-4005-8e99-739db5e84620",
+      "activity_id": 17435718791,
+      "activity_name": "Toepro",
+      "activity_date": "2026-02-18",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-18T06:19:39Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "01a97eed-03e5-4b16-a5d9-14cb9399d218",
+      "activity_id": 17463424087,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-02-20",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-20T17:46:56Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "91d91835-f2ac-42b8-a665-98f9e39b3325",
+      "activity_id": 17496275827,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-02-23",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-23T17:27:23Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "5bbda9d1-b5d0-4e02-8dd6-3d56fcd938e0",
+      "activity_id": 17501792147,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-02-24",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-24T05:50:59Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "5f39d108-a47b-4eec-bfb2-920fac9e548d",
+      "activity_id": 17514122876,
+      "activity_name": "Toepro",
+      "activity_date": "2026-02-25",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-25T06:00:02Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "babb0c18-66d8-47b1-a86f-a62a6df1c97a",
+      "activity_id": 17538268748,
+      "activity_name": "MOBO FeetFocus 2",
+      "activity_date": "2026-02-27",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-27T07:31:55Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "e661671f-4f28-4d81-a5eb-13dc8bc52ccb",
+      "activity_id": 17543621079,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-02-27",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-02-27T17:26:58Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "2b58a442-58f2-4a88-bb84-a98f89d1e489",
+      "activity_id": 17572269615,
+      "activity_name": "Hip and Glute Accessories 1",
+      "activity_date": "2026-03-02",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-02T05:53:34Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "afb5f67b-2c5e-474b-b81d-a3e1d6c32189",
+      "activity_id": 17579131925,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-03-02",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-02T18:45:37Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "500058ca-5fcd-482a-88cb-f311037d7307",
+      "activity_id": 17583979064,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-03-03",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-03T06:07:21Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "999cedc5-ea79-4da8-a2d0-130df23763f5",
+      "activity_id": 17596726112,
+      "activity_name": "Toepro",
+      "activity_date": "2026-03-04",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-04T06:03:57Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "2b4b63ef-72d9-41c5-894e-b8a3c56a9eb6",
+      "activity_id": 17621145485,
+      "activity_name": "MOBO FeetFocus 2",
+      "activity_date": "2026-03-06",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-06T06:25:37Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "e0f8c89c-5bd6-4699-80ab-c7b184a0abc3",
+      "activity_id": 17627033021,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-03-06",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-06T17:43:02Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "33ce07ec-b72a-406b-a84a-f2c09ea2aa01",
+      "activity_id": 17663645444,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-03-09",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-09T19:17:03Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "c914177d-1d6e-464d-95a1-2047bb3fe545",
+      "activity_id": 17656214923,
+      "activity_name": "Hip and Glute Accessories 1",
+      "activity_date": "2026-03-09",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-09T06:03:28Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "3f08faae-4fa2-46c0-8050-29415067f189",
+      "activity_id": 17668388375,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-03-10",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-10T06:10:21Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "9620db61-c84c-4b16-afae-73143ddf4590",
+      "activity_id": 17681292502,
+      "activity_name": "Toepro",
+      "activity_date": "2026-03-11",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-11T06:16:43Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "ca493b3c-a6cd-4e30-9f9a-0fa2f4cb5a39",
+      "activity_id": 17704647052,
+      "activity_name": "MOBO FeetFocus 2",
+      "activity_date": "2026-03-13",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-13T06:31:21Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "f6a719f9-6969-420c-ad81-4600e549479e",
+      "activity_id": 17738772611,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-03-13",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-16T06:32:21Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "0572c9f2-31eb-4c8f-99cc-072d43a8a434",
+      "activity_id": 17738886926,
+      "activity_name": "Hip and Glute Accessories 1",
+      "activity_date": "2026-03-16",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-16T06:55:28Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "b53b41f6-aa50-4f50-a5bd-709dcb3e54c1",
+      "activity_id": 17913888509,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-03-30",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-30T16:12:05Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "5116b1d3-20ad-4390-90f2-6774ecb3e4e9",
+      "activity_id": 17929323983,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-03-31",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-03-31T19:19:00Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "37f05cb6-7d00-4975-aa32-6f65227de7f0",
+      "activity_id": 17997028531,
+      "activity_name": "Hip and Glute Accessories 1",
+      "activity_date": "2026-04-06",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-06T10:15:14Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "5e12e88d-6e07-497f-9bbc-9e7ed4f8eecd",
+      "activity_id": 18001428764,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-04-06",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-06T15:19:44Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "404a103f-7d6c-4741-842e-470f7ba3b44f",
+      "activity_id": 18008333632,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-04-07",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-07T05:04:04Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "b025f5f3-d10d-4030-8576-3b8790765390",
+      "activity_id": 18055759749,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-04-10",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-10T16:41:06Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "2a58cdbb-8168-4234-9bcb-1bc56fed728e",
+      "activity_id": 18094351346,
+      "activity_name": "Gym Day 1",
+      "activity_date": "2026-04-13",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-13T17:52:43Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "d86ec544-31c5-4390-a8e7-5c207ae8ffe8",
+      "activity_id": 18087146587,
+      "activity_name": "Hip and Glute Accessories 1",
+      "activity_date": "2026-04-13",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-13T04:48:19Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "1944b9ed-b59e-48ca-933e-651c1feb3998",
+      "activity_id": 18099924507,
+      "activity_name": "MOBO FeetFocus 1",
+      "activity_date": "2026-04-14",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-14T05:05:54Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "7638ac35-a01a-4863-9fbf-4af1f2449e0a",
+      "activity_id": 18147570093,
+      "activity_name": "Gym Day 2",
+      "activity_date": "2026-04-17",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-17T17:07:20Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    },
+    {
+      "strava_unique_id": "f9a607bb-86d7-4de6-8bf1-631ed946db03",
+      "activity_id": 18140655319,
+      "activity_name": "MOBO FeetFocus 2",
+      "activity_date": "2026-04-17",
+      "activity_type": "WeightTraining",
+      "uploaded_at": "2026-04-17T05:07:32Z",
+      "reason": "Auto-detected from initial repo cleanup"
+    }
+  ]
+}
