@@ -1,0 +1,1113 @@
+/* ─────────────────────────────────────────────
+   TRAINING DASHBOARD — LIGHT THEME
+   Fonts: Syne (display) + DM Mono (mono/data)
+───────────────────────────────────────────── */
+
+:root {
+  --bg:           #F7F6F2;
+  --surface:      #FFFFFF;
+  --surface-2:    #F0EEE9;
+  --border:       #E2DFDA;
+  --border-light: #EDEBE6;
+  --text-primary: #1A1814;
+  --text-secondary: #6B6760;
+  --text-tertiary: #9B9890;
+
+  /* Category colours */
+  --c-run:       #E8705A;
+  --c-walk:      #5A9B6E;
+  --c-gym:       #4A6FA8;
+  --c-acc:       #8B7EC8;
+  --c-jump:      #D4A82A;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg:  0 8px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.05);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'DM Mono', monospace;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── HEADER ─────────────────────────────── */
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.header-meta {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.meta-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.meta-stat .val {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.meta-stat .lbl {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── MAIN ───────────────────────────────── */
+
+main {
+  padding: 20px 28px 40px;
+  width: 100%;
+}
+
+/* ── CONTROLS ───────────────────────────── */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 2px;
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.toggle-btn.active {
+  background: var(--text-primary);
+  color: #fff;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.15s;
+}
+
+.legend-item.hidden { opacity: 0.35; }
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── CHART ──────────────────────────────── */
+
+.chart-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.chart-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chart-scroll::-webkit-scrollbar { height: 8px; }
+.chart-scroll::-webkit-scrollbar-track { background: var(--surface-2); border-radius: 4px; }
+.chart-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+#chart-canvas {
+  display: block;
+  cursor: pointer;
+}
+
+/* ── DETAIL PANEL ───────────────────────── */
+
+/* ── DETAIL PANEL ───────────────────────────── */
+
+.detail-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.detail-panel.open {
+  max-height: 6000px;
+  overflow: visible;
+}
+
+/* Leaflet pane z-indices must stay below sticky header (z-index: 100) */
+.leaflet-pane         { z-index: 10 !important; }
+.leaflet-top,
+.leaflet-bottom       { z-index: 15 !important; }
+.leaflet-tile-pane    { z-index: 10 !important; }
+.leaflet-overlay-pane { z-index: 11 !important; }
+.leaflet-marker-pane  { z-index: 12 !important; }
+.leaflet-tooltip-pane { z-index: 13 !important; }
+.leaflet-popup-pane   { z-index: 14 !important; }
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.detail-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-cat-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.detail-close {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  line-height: 1;
+  padding: 3px 7px;
+  border-radius: 4px;
+  transition: background 0.1s;
+}
+
+.detail-close:hover {
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.detail-body {
+  padding: 14px 16px 16px;
+}
+
+/* ── THREE-COLUMN GRID ──────────────────────── */
+
+.dp-grid {
+  display: grid;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.dp-col {
+  background: var(--surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 300px;
+}
+
+/* MAP */
+.dp-col-map {
+  padding: 0;
+}
+
+/* Leaflet overrides */
+.dp-col-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  background: #e8f0ec;
+}
+
+/* STATS */
+.dp-col-stats {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.dp-stat-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dp-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.dp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.dp-stat-val {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.dp-stat-lbl {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dp-zones {
+  border-top: 1px solid var(--border-light);
+  padding-top: 10px;
+  margin-top: 2px;
+}
+
+.dp-zones-lbl {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.dp-zones-bar {
+  display: flex;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+.dp-zones-bar > div:first-child { border-radius: 3px 0 0 3px; }
+.dp-zones-bar > div:last-child  { border-radius: 0 3px 3px 0; }
+
+.dp-zones-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* PHOTOS — mosaic preview */
+.dp-col-photos {
+  padding: 0;
+  overflow: hidden;
+}
+
+.dp-mosaic {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 2px;
+}
+
+.dp-mosaic-1 {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.dp-mosaic-2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.dp-mosaic-3 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.dp-mosaic-3 .dp-thumb:first-child {
+  grid-row: 1 / 3;
+}
+
+.dp-thumb {
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.dp-thumb:hover { opacity: 0.85; }
+
+.dp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* LIGHTBOX */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox.open {
+  display: flex;
+}
+
+#lb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#lb-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+#lb-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+#lb-counter {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+#lb-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+#lb-close:hover { background: rgba(255,255,255,0.3); }
+
+#lb-prev, #lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+#lb-prev:hover, #lb-next:hover { background: rgba(255,255,255,0.3); }
+#lb-prev { left: -52px; }
+#lb-next { right: -52px; }
+
+/* ── AGGREGATE WEEK / MONTH LAYOUT ─────────── */
+
+.dp-agg-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dp-agg-summary {
+  background: var(--surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.dp-agg-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px 16px;
+}
+
+.dp-agg-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dp-agg-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-activity-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+  outline: none;
+}
+
+.dp-activity-row:hover {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.dp-activity-row.dp-row-active {
+  background: var(--surface);
+  border-color: var(--border);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-color: transparent;
+}
+
+
+.dp-row-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dp-row-date {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dp-row-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dp-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.dp-row-metric {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.dp-row-dur {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.dp-row-chevron {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  transition: transform 0.15s;
+  line-height: 1;
+}
+
+.dp-activity-row.dp-row-active .dp-row-chevron {
+  transform: rotate(90deg);
+}
+
+/* Expanded detail inside aggregate list */
+.dp-activity-expand {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.dp-activity-expand.open {
+  display: block;
+}
+
+.dp-exp-grid {
+  padding: 0 12px 12px 12px;
+}
+
+.dp-exp-grid .dp-col {
+  height: 250px;
+}
+
+/* ── AGGREGATE ROW VARIANTS ─────────────────── */
+
+.dp-activity-row.dp-row-static {
+  cursor: default;
+}
+.dp-activity-row.dp-row-static:hover {
+  background: var(--surface-2);
+  border-color: var(--border-light);
+}
+.dp-activity-row.dp-row-expandable {
+  cursor: pointer;
+}
+
+/* Inline name + stats on one line (run/walk/jump/gymcardio) */
+.dp-row-name-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 0 8px;
+  min-width: 0;
+}
+.dp-row-name-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.dp-row-inline-stats {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+.dp-row-km {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 8px;
+}
+.dp-row-camera {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  padding-left: 2px;
+}
+.dp-row-camera svg {
+  width: 12px;
+  height: 12px;
+}
+.dp-activity-row.dp-row-active .dp-row-inline-stats {
+  display: none;
+}
+.dp-activity-row.dp-row-active .dp-row-gym-bar {
+  display: none;
+}
+.dp-activity-row.dp-row-active .dp-bar-gym-compounds-col,
+.dp-activity-row.dp-row-active .dp-bar-gym-assist-col {
+  display: none;
+}
+/* Inline HR zones bar (jump rope) */
+.dp-bar-zones-wrap {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.dp-bar-zones-bar {
+  display: inline-flex;
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Accessory row: date above, then name+duration and exercises on same line */
+.dp-row-acc-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.dp-row-acc-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.dp-row-acc-name-col {
+  flex-shrink: 0;
+  width: 220px;
+}
+.dp-row-acc-dur {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.dp-row-acc-exercises {
+  flex: 1;
+  min-width: 0;
+}
+.dp-row-acc-exercises .gym-exercise-row {
+  flex-wrap: wrap;
+}
+
+/* Gym two-line row */
+.dp-row-left-gym {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dp-row-name-gym {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 0 12px;
+  min-width: 0;
+  flex: 1;
+}
+.dp-row-gym-name-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-shrink: 0;
+}
+.dp-bar-gym-compounds-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0 10px;
+}
+.dp-bar-gym-assist-col {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Gym bar compound block */
+.dp-bar-gym-compound {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.dp-bar-gym-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.dp-bar-gym-sets {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.dp-bar-gym-sep {
+  font-size: 14px;
+  color: var(--border);
+  padding: 0 4px;
+  align-self: center;
+}
+.dp-bar-gym-assist {
+  font-size: 12px;
+  color: var(--text-secondary);
+  align-self: center;
+}
+.dp-bar-gym-subtitle {
+  display: block;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+.dp-bar-gym-subtitle.dp-gym-sub-long {
+  display: none;
+}
+.dp-activity-row.dp-row-active .dp-bar-gym-subtitle.dp-gym-sub-short {
+  display: none;
+}
+.dp-activity-row.dp-row-active .dp-bar-gym-subtitle.dp-gym-sub-long {
+  display: block;
+}
+
+/* Gym expanded view inside aggregate */
+.dp-exp-gym-header {
+  padding: 10px 14px 6px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+}
+.dp-exp-gym-wrap {
+  padding: 0 14px 12px 14px;
+}
+.dp-exp-gym-wrap.gym-detail-wrap {
+  padding: 0 14px 12px 14px;
+}
+
+/* ── RESPONSIVE ─────────────────────────────── */
+
+@media (max-width: 700px) {
+  .dp-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .dp-col {
+    height: 220px;
+  }
+  .dp-agg-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── LOADING / ERROR ────────────────────── */
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 10px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── RESPONSIVE ─────────────────────────── */
+
+@media (max-width: 640px) {
+  header { padding: 8px 16px; }
+  main { padding: 14px 16px 32px; }
+  .header-title h1 { font-size: 14px; }
+  .countdowns { gap: 6px; }
+  .header-top { gap: 10px; }
+}
+
+/* ── GYM STRENGTH DETAIL PANEL ──────────────── */
+
+.gym-detail-wrap {
+  padding: 4px 0;
+}
+
+.gym-section-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.gym-section-divider {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 16px 0 14px;
+}
+
+/* Fluid gym exercise row (used by acc detail) */
+.gym-exercise-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* Two-column gym layout: compounds left, assists right */
+.gym-two-col {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+.gym-col-compounds {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+}
+.gym-col-assist {
+  flex: 1 1 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Each exercise block — sized by content */
+.gym-block {
+  flex: 0 0 auto;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-right: 1px solid var(--border-light);
+}
+
+.gym-block:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+/* Superset tint — base (no background, just shared styling) */
+.gym-block.gym-ss {
+  padding-left: 5px;
+  border-radius: 3px;
+}
+
+/* Superset tints, cycled by order of appearance within a session */
+.gym-block.gym-ss-1 { background: #F0FBF7; } /* green (sage-derived) */
+.gym-block.gym-ss-2 { background: #FDF1ED; } /* coral-derived */
+.gym-block.gym-ss-3 { background: #FCF7E8; } /* yellow-derived */
+.gym-block.gym-ss-4 { background: #F4F2FA; } /* lavender-derived */
+
+/* Compound styling — bolder */
+.gym-compound .gym-ex-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.gym-compound .gym-ex-sets {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.gym-top-set {
+  color: #4A6FA8;
+  font-weight: 600;
+}
+
+.gym-ex-warmups {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+/* Assistance styling — lighter */
+.gym-assist .gym-ex-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.gym-assist .gym-ex-sets {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* JUMP ROPE detail panel */
+.dp-jr-wrap {
+  padding: 4px 0;
+}
+
+.dp-jr-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.dp-jr-stat {
+  border-right: 1px solid var(--border-light);
+  padding-right: 20px;
+  margin-right: 20px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 60px;
+}
+
+.dp-jr-stat:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.dp-jr-stat-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.dp-jr-stat-val {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.dp-jr-stat-val-null {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-tertiary);
+  line-height: 1.2;
+}
+
+.dp-jr-zones-block {
+  flex: 1;
+  min-width: 220px;
+}
+
+.dp-jr-zones-bar {
+  display: flex;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  gap: 2px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+}
+
+.dp-jr-zones-bar > div:first-child { border-radius: 3px 0 0 3px; }
+.dp-jr-zones-bar > div:last-child  { border-radius: 0 3px 3px 0; }
+
+.dp-jr-zones-labels {
+  display: flex;
+  justify-content: space-between;
+}
