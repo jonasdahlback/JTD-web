@@ -8,7 +8,6 @@
 // ── DATA FILES ───────────────────────────────
 const DATA_FILES = [
   'data/master_summary_garmin_2025.json',
-  'data/master_summary_suunto_2025.json',
   'data/master_summary_hevy_2025.json',
   'data/master_summary_garmin_2026.json',
   'data/master_summary_suunto_2026.json',
@@ -1031,8 +1030,15 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
         <div class="dp-row-chevron">›</div>`;
 
     } else if (catKey === 'gym') {
-      const gymSubtitle = (item.summary.block != null && item.summary.week != null)
-        ? `<div class="dp-bar-gym-subtitle">Block ${item.summary.block} · Week ${item.summary.week}</div>` : '';
+      const _gs       = item.summary;
+      const _hasW     = _gs.block != null && _gs.week != null;
+      const _scheme   = _hasW ? (WENDLER_SCHEMES[_gs.week] || {}) : {};
+      const gymSubShort = _hasW
+        ? `<div class="dp-bar-gym-subtitle dp-gym-sub-short">Block ${_gs.block} · Week ${_gs.week}</div>`
+        : '';
+      const gymSubLong = _hasW
+        ? `<div class="dp-bar-gym-subtitle dp-gym-sub-long">Block ${_gs.block} · Week ${_gs.week}${_scheme.sets ? ` · ${_scheme.sets} · ${_scheme.pcts}` : ''} · ${fmtDuration(_gs.durationSeconds)}</div>`
+        : '';
       const { compoundsHTML, assistHTML } = buildGymBarParts(item);
       barContent = `
         <div class="dp-row-left dp-row-left-gym">
@@ -1040,7 +1046,7 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
           <div class="dp-row-name-gym">
             <div class="dp-row-gym-name-col">
               <div class="dp-row-name-text">${displayName}</div>
-              ${gymSubtitle}
+              ${gymSubShort}${gymSubLong}
             </div>
             <div class="dp-bar-gym-compounds-col">${compoundsHTML}</div>
             <div class="dp-bar-gym-assist-col">${assistHTML}</div>
@@ -1087,7 +1093,7 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
 
     const expandDiv = canExpand ? `<div class="dp-activity-expand" id="dp-expand-${idx}"></div>` : '';
     const rowClass  = canExpand ? 'dp-activity-row dp-row-expandable' : 'dp-activity-row dp-row-static';
-    return `<div class="${rowClass}" data-idx="${idx}" ${canExpand ? 'tabindex="0"' : ''}>${barContent}</div>${expandDiv}`;
+    return `<div class="dp-agg-item"><div class="${rowClass}" data-idx="${idx}" ${canExpand ? 'tabindex="0"' : ''}>${barContent}</div>${expandDiv}</div>`;
   }).join('');
 
   panel.innerHTML = `
@@ -1120,6 +1126,11 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
 
   let expandedIdx = null;
   panel.querySelectorAll('.dp-row-expandable').forEach(row => {
+    // Also let clicks on the expand container collapse the row (gym rows shrink
+    // to zero height when active, so the expand div is the only visible target)
+    const expandEl = document.getElementById(`dp-expand-${row.dataset.idx}`);
+    if (expandEl) expandEl.addEventListener('click', () => row.click());
+
     row.addEventListener('click', () => {
       const idx      = parseInt(row.dataset.idx);
       const item     = sorted[idx];
@@ -1229,7 +1240,6 @@ function renderExpandedActivity(container, item, catKey, cat) {
     }).join('');
 
     container.innerHTML = `
-      <div class="dp-exp-gym-header">${titleLine}</div>
       <div class="gym-detail-wrap dp-exp-gym-wrap">
         <div class="gym-exercise-row">
           ${compounds.map(compoundBlockHTML).join('')}

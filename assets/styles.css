@@ -227,7 +227,7 @@ main {
 }
 
 .detail-panel.open {
-  max-height: 1200px;
+  max-height: 6000px;
   overflow: visible;
 }
 
@@ -556,6 +556,11 @@ main {
   gap: 2px;
 }
 
+.dp-agg-item {
+  display: flex;
+  flex-direction: column;
+}
+
 .dp-activity-row {
   display: flex;
   align-items: center;
@@ -581,13 +586,7 @@ main {
   border-bottom-right-radius: 0;
   border-bottom-color: transparent;
 }
-.dp-activity-row.dp-row-active:has(.dp-row-left-gym) {
-  padding: 0;
-  min-height: 0;
-}
-.dp-activity-row.dp-row-active .dp-row-left-gym ~ .dp-row-chevron {
-  display: none;
-}
+
 
 .dp-row-left {
   flex: 1;
@@ -655,8 +654,6 @@ main {
   border-bottom-left-radius: var(--radius-md);
   border-bottom-right-radius: var(--radius-md);
   overflow: hidden;
-  margin-left: -16px;
-  margin-right: -16px;
 }
 
 .dp-activity-expand.open {
@@ -664,7 +661,7 @@ main {
 }
 
 .dp-exp-grid {
-  padding: 12px;
+  padding: 0 12px 12px 12px;
 }
 
 .dp-exp-grid .dp-col {
@@ -734,10 +731,10 @@ main {
 .dp-activity-row.dp-row-active .dp-row-gym-bar {
   display: none;
 }
-.dp-activity-row.dp-row-active .dp-row-left-gym {
+.dp-activity-row.dp-row-active .dp-bar-gym-compounds-col,
+.dp-activity-row.dp-row-active .dp-bar-gym-assist-col {
   display: none;
 }
-
 /* Inline HR zones bar (jump rope) */
 .dp-bar-zones-wrap {
   display: inline-flex;
@@ -847,9 +844,19 @@ main {
   align-self: center;
 }
 .dp-bar-gym-subtitle {
+  display: block;
   font-size: 11px;
   color: var(--text-tertiary);
   margin-top: 2px;
+}
+.dp-bar-gym-subtitle.dp-gym-sub-long {
+  display: none;
+}
+.dp-activity-row.dp-row-active .dp-bar-gym-subtitle.dp-gym-sub-short {
+  display: none;
+}
+.dp-activity-row.dp-row-active .dp-bar-gym-subtitle.dp-gym-sub-long {
+  display: block;
 }
 
 /* Gym expanded view inside aggregate */
@@ -862,10 +869,10 @@ main {
   border-bottom: 1px solid var(--border-light);
 }
 .dp-exp-gym-wrap {
-  padding: 12px 14px;
+  padding: 0 14px 12px 14px;
 }
 .dp-exp-gym-wrap.gym-detail-wrap {
-  padding: 12px 14px;
+  padding: 0 14px 12px 14px;
 }
 
 /* ── RESPONSIVE ─────────────────────────────── */
