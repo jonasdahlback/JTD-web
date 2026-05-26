@@ -22147,8 +22147,8 @@
       "notes": null,
       "device": "hevy",
       "photoFilenames": [],
-      "block": null,
-      "week": null
+      "block": 1,
+      "week": 3
     },
     "gpsTrack": null,
     "raw": {
@@ -22158,7 +22158,7 @@
         {
           "exerciseTitle": "Deadlift (Barbell)",
           "supersetId": null,
-          "exerciseNotes": "",
+          "exerciseNotes": "RIRB1W3",
           "sets": [
             {
               "setIndex": 0,
@@ -22228,7 +22228,7 @@
         {
           "exerciseTitle": "Overhead Press (Barbell)",
           "supersetId": null,
-          "exerciseNotes": "",
+          "exerciseNotes": "RIRB1W3",
           "sets": [
             {
               "setIndex": 0,
@@ -23046,6 +23046,235 @@
               "setType": "warmup",
               "weightKg": 35,
               "reps": 10,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        }
+      ],
+      "samples": []
+    }
+  },
+  {
+    "summary": {
+      "activityId": "363568a6ffdb0d0d",
+      "source": "hevy",
+      "date": "2026-05-26",
+      "startTime": "2026-05-26T05:47:00",
+      "name": "Hip and Glute 1 v2",
+      "stravaName": null,
+      "activityType": "gym",
+      "durationSeconds": 2700,
+      "distanceKm": null,
+      "avgHrBpm": null,
+      "maxHrBpm": null,
+      "minHrBpm": null,
+      "hrZones": {
+        "z1Seconds": null,
+        "z2Seconds": null,
+        "z3Seconds": null,
+        "z4Seconds": null,
+        "z5Seconds": null
+      },
+      "hrSource": null,
+      "zoneConfig": {
+        "z1Max": 122,
+        "z2Min": 123,
+        "z2Max": 136,
+        "z3Min": 137,
+        "z3Max": 166,
+        "z4Min": 167,
+        "z4Max": 174,
+        "z5Min": 175
+      },
+      "elevationGainM": null,
+      "elevationLossM": null,
+      "elevationDataReliable": null,
+      "avgPaceMinPerKm": null,
+      "calories": null,
+      "cadenceAvg": null,
+      "cadenceMax": null,
+      "repetitionCount": 216,
+      "epoc": null,
+      "peakTrainingEffect": null,
+      "recoveryTimeSeconds": null,
+      "trainingStressScore": null,
+      "notes": null,
+      "device": "hevy",
+      "photoFilenames": [],
+      "block": null,
+      "week": null
+    },
+    "gpsTrack": null,
+    "raw": {
+      "source": "hevy_api",
+      "header": {},
+      "windows": [
+        {
+          "exerciseTitle": "Standing Side Riser Band",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 21,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 1,
+              "reps": 21,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 1,
+              "reps": 21,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Hip Flexor Uni Pass Over",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 13,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 13,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 13,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Knee Drive Hold Kettlebell",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 5,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 30,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 5,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 30,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 5,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 30,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Sganding Glute Kickback Band",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 3,
+              "reps": 24,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 3,
+              "reps": 24,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 5,
+              "reps": 24,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Adductor Side Plank",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 14,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 14,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 14,
               "distanceKm": null,
               "durationSeconds": null,
               "rpe": null

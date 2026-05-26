@@ -281,6 +281,36 @@ main {
   color: var(--text-primary);
 }
 
+.detail-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dp-expand-all-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, transform 0.2s;
+}
+.dp-expand-all-btn:hover {
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+.dp-expand-all-btn svg {
+  transition: transform 0.2s;
+}
+.dp-expand-all-btn.dp-expand-all-open svg {
+  transform: rotate(180deg);
+}
+
 .detail-body {
   padding: 14px 16px 16px;
 }
@@ -731,10 +761,6 @@ main {
 .dp-activity-row.dp-row-active .dp-row-gym-bar {
   display: none;
 }
-.dp-activity-row.dp-row-active .dp-bar-gym-compounds-col,
-.dp-activity-row.dp-row-active .dp-bar-gym-assist-col {
-  display: none;
-}
 /* Inline HR zones bar (jump rope) */
 .dp-bar-zones-wrap {
   display: inline-flex;
@@ -787,33 +813,39 @@ main {
   flex-direction: column;
   gap: 2px;
 }
-.dp-row-name-gym {
+.dp-row-gym-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.dp-row-gym-meta {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-left: 4px;
+}
+.dp-row-gym-exercises {
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
-  gap: 0 12px;
-  min-width: 0;
-  flex: 1;
+  gap: 0 10px;
 }
-.dp-row-gym-name-col {
+.dp-row-gym-compounds-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 1px;
   flex-shrink: 0;
-}
-.dp-bar-gym-compounds-col {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
   align-items: flex-start;
   gap: 0 10px;
 }
-.dp-bar-gym-assist-col {
+.dp-row-gym-assist-inline {
   flex: 1 1 0;
   min-width: 0;
   font-size: 12px;
   color: var(--text-secondary);
   line-height: 1.4;
+}
+.dp-activity-row.dp-row-active .dp-row-gym-exercises {
+  display: none;
 }
 
 /* Gym bar compound block */
@@ -842,21 +874,6 @@ main {
   font-size: 12px;
   color: var(--text-secondary);
   align-self: center;
-}
-.dp-bar-gym-subtitle {
-  display: block;
-  font-size: 11px;
-  color: var(--text-tertiary);
-  margin-top: 2px;
-}
-.dp-bar-gym-subtitle.dp-gym-sub-long {
-  display: none;
-}
-.dp-activity-row.dp-row-active .dp-bar-gym-subtitle.dp-gym-sub-short {
-  display: none;
-}
-.dp-activity-row.dp-row-active .dp-bar-gym-subtitle.dp-gym-sub-long {
-  display: block;
 }
 
 /* Gym expanded view inside aggregate */

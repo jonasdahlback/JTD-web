@@ -576,6 +576,20 @@ const WENDLER_SCHEMES = {
   3: { sets: '5 / 3 / 1+',   pcts: '75% / 85% / 95%' },
 };
 
+const RIR_SCHEMES = { 1: '3 RIR', 2: '2 RIR', 3: '2 RIR' };
+
+// Detect programme from raw compound exerciseNotes
+function detectProgramme(windows) {
+  for (const w of windows) {
+    if (COMPOUND_NAMES.has(w.exerciseTitle)) {
+      const notes = w.exerciseNotes || '';
+      if (/^RIR/i.test(notes)) return 'rir';
+      if (/^B\d/i.test(notes))  return 'wendler';
+    }
+  }
+  return null;
+}
+
 // Superset colour pairs — border colour, background tint
 const SUPERSET_COLORS = [
   { border: '#1D9E75', bg: 'rgba(29,158,117,0.07)' },  // teal
@@ -604,9 +618,15 @@ function renderGymDetail(panel, bk, item, cat) {
 
   let titleLine = `${s.name} &nbsp;·&nbsp; ${dateShort}`;
   if (block != null && week != null) {
-    const scheme = WENDLER_SCHEMES[week] || {};
+    const prog = detectProgramme(windows);
     titleLine += ` &nbsp;·&nbsp; Block ${block} &nbsp;·&nbsp; Week ${week}`;
-    if (scheme.sets) titleLine += ` &nbsp;·&nbsp; ${scheme.sets} &nbsp;·&nbsp; ${scheme.pcts}`;
+    if (prog === 'rir') {
+      const rir = RIR_SCHEMES[week] || '';
+      if (rir) titleLine += ` &nbsp;·&nbsp; ${rir}`;
+    } else {
+      const scheme = WENDLER_SCHEMES[week] || {};
+      if (scheme.sets) titleLine += ` &nbsp;·&nbsp; ${scheme.sets} &nbsp;·&nbsp; ${scheme.pcts}`;
+    }
     titleLine += ` &nbsp;·&nbsp; ${fmtDuration(s.durationSeconds)}`;
   } else {
     titleLine += ` &nbsp;·&nbsp; ${fmtDuration(s.durationSeconds)}`;
@@ -1031,25 +1051,24 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
 
     } else if (catKey === 'gym') {
       const _gs       = item.summary;
+      const _windows  = (item.raw && item.raw.windows) ? item.raw.windows : [];
       const _hasW     = _gs.block != null && _gs.week != null;
-      const _scheme   = _hasW ? (WENDLER_SCHEMES[_gs.week] || {}) : {};
-      const gymSubShort = _hasW
-        ? `<div class="dp-bar-gym-subtitle dp-gym-sub-short">Block ${_gs.block} · Week ${_gs.week}</div>`
-        : '';
-      const gymSubLong = _hasW
-        ? `<div class="dp-bar-gym-subtitle dp-gym-sub-long">Block ${_gs.block} · Week ${_gs.week}${_scheme.sets ? ` · ${_scheme.sets} · ${_scheme.pcts}` : ''} · ${fmtDuration(_gs.durationSeconds)}</div>`
-        : '';
+      const _prog     = _hasW ? detectProgramme(_windows) : null;
+      let progLabel = '';
+      if (_hasW) {
+        if (_prog === 'rir') {
+          progLabel = `<span class="dp-row-gym-meta">Block ${_gs.block} · Week ${_gs.week} · RIR</span>`;
+        } else {
+          progLabel = `<span class="dp-row-gym-meta">Block ${_gs.block} · Week ${_gs.week} · 5/3/1</span>`;
+        }
+      }
       const { compoundsHTML, assistHTML } = buildGymBarParts(item);
       barContent = `
         <div class="dp-row-left dp-row-left-gym">
           <div class="dp-row-date">${dateStr}</div>
-          <div class="dp-row-name-gym">
-            <div class="dp-row-gym-name-col">
-              <div class="dp-row-name-text">${displayName}</div>
-              ${gymSubShort}${gymSubLong}
-            </div>
-            <div class="dp-bar-gym-compounds-col">${compoundsHTML}</div>
-            <div class="dp-bar-gym-assist-col">${assistHTML}</div>
+          <div class="dp-row-gym-title">${displayName} ${progLabel}</div>
+          <div class="dp-row-gym-exercises">
+            <div class="dp-row-gym-compounds-wrap">${compoundsHTML}</div>${assistHTML ? `<span class="dp-row-gym-assist-inline">${assistHTML}</span>` : ''}
           </div>
         </div>
         <div class="dp-row-chevron">›</div>`;
@@ -1096,13 +1115,22 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
     return `<div class="dp-agg-item"><div class="${rowClass}" data-idx="${idx}" ${canExpand ? 'tabindex="0"' : ''}>${barContent}</div>${expandDiv}</div>`;
   }).join('');
 
+  const expandAllBtn = canExpand
+    ? `<button class="dp-expand-all-btn" id="dp-expand-all-btn" title="Expand all">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       </button>`
+    : '';
+
   panel.innerHTML = `
     <div class="detail-header">
       <div class="detail-title">
         <span class="detail-cat-dot" style="background:${cat.color}"></span>
         ${cat.label} · ${bucketTitle}
       </div>
-      <span class="detail-close" id="detail-close-btn">✕</span>
+      <div class="detail-header-actions">
+        ${expandAllBtn}
+        <span class="detail-close" id="detail-close-btn">✕</span>
+      </div>
     </div>
     <div class="detail-body">
       <div class="dp-agg-layout">
@@ -1124,41 +1152,64 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
 
   if (!canExpand) return;
 
-  let expandedIdx = null;
-  panel.querySelectorAll('.dp-row-expandable').forEach(row => {
-    // Also let clicks on the expand container collapse the row (gym rows shrink
-    // to zero height when active, so the expand div is the only visible target)
+  // Independent toggle — each row expands/collapses on its own
+  const rows = panel.querySelectorAll('.dp-row-expandable');
+
+  function expandRow(row) {
+    const idx = parseInt(row.dataset.idx);
+    const expandEl = document.getElementById(`dp-expand-${idx}`);
+    if (row.classList.contains('dp-row-active')) return;
+    row.classList.add('dp-row-active');
+    renderExpandedActivity(expandEl, sorted[idx], catKey, cat);
+    expandEl.classList.add('open');
+  }
+
+  function collapseRow(row) {
+    const idx = parseInt(row.dataset.idx);
+    const expandEl = document.getElementById(`dp-expand-${idx}`);
+    if (!row.classList.contains('dp-row-active')) return;
+    expandEl.classList.remove('open');
+    expandEl.innerHTML = '';
+    row.classList.remove('dp-row-active');
+    if (window._leafletMap) { window._leafletMap.remove(); window._leafletMap = null; }
+  }
+
+  rows.forEach(row => {
     const expandEl = document.getElementById(`dp-expand-${row.dataset.idx}`);
     if (expandEl) expandEl.addEventListener('click', () => row.click());
 
     row.addEventListener('click', () => {
-      const idx      = parseInt(row.dataset.idx);
-      const item     = sorted[idx];
-      const expandEl = document.getElementById(`dp-expand-${idx}`);
-
-      if (expandedIdx === idx) {
-        expandEl.classList.remove('open');
-        expandEl.innerHTML = '';
-        row.classList.remove('dp-row-active');
-        if (window._leafletMap) { window._leafletMap.remove(); window._leafletMap = null; }
-        expandedIdx = null;
-        return;
+      if (row.classList.contains('dp-row-active')) {
+        collapseRow(row);
+      } else {
+        expandRow(row);
       }
-
-      if (expandedIdx !== null) {
-        const prev    = document.getElementById(`dp-expand-${expandedIdx}`);
-        const prevRow = panel.querySelector(`.dp-row-expandable[data-idx="${expandedIdx}"]`);
-        if (prev)    { prev.classList.remove('open'); prev.innerHTML = ''; }
-        if (prevRow) prevRow.classList.remove('dp-row-active');
-        if (window._leafletMap) { window._leafletMap.remove(); window._leafletMap = null; }
-      }
-
-      expandedIdx = idx;
-      row.classList.add('dp-row-active');
-      renderExpandedActivity(expandEl, item, catKey, cat);
-      expandEl.classList.add('open');
+      updateExpandAllBtn();
     });
   });
+
+  // Expand / collapse all
+  const expandAllBtnEl = document.getElementById('dp-expand-all-btn');
+  let allExpanded = false;
+
+  function updateExpandAllBtn() {
+    if (!expandAllBtnEl) return;
+    const openCount = panel.querySelectorAll('.dp-row-expandable.dp-row-active').length;
+    allExpanded = openCount === rows.length;
+    expandAllBtnEl.classList.toggle('dp-expand-all-open', allExpanded);
+    expandAllBtnEl.title = allExpanded ? 'Collapse all' : 'Expand all';
+  }
+
+  if (expandAllBtnEl) {
+    expandAllBtnEl.addEventListener('click', () => {
+      if (allExpanded) {
+        rows.forEach(r => collapseRow(r));
+      } else {
+        rows.forEach(r => expandRow(r));
+      }
+      updateExpandAllBtn();
+    });
+  }
 }
 
 // ── EXPANDED SINGLE ACTIVITY (inside aggregate list) ──
@@ -1176,9 +1227,15 @@ function renderExpandedActivity(container, item, catKey, cat) {
 
     let titleLine = `${s.name} &nbsp;·&nbsp; ${dateShort}`;
     if (s.block != null && s.week != null) {
-      const scheme = WENDLER_SCHEMES[s.week] || {};
+      const prog = detectProgramme(windows);
       titleLine += ` &nbsp;·&nbsp; Block ${s.block} &nbsp;·&nbsp; Week ${s.week}`;
-      if (scheme.sets) titleLine += ` &nbsp;·&nbsp; ${scheme.sets} &nbsp;·&nbsp; ${scheme.pcts}`;
+      if (prog === 'rir') {
+        const rir = RIR_SCHEMES[s.week] || '';
+        if (rir) titleLine += ` &nbsp;·&nbsp; ${rir}`;
+      } else {
+        const scheme = WENDLER_SCHEMES[s.week] || {};
+        if (scheme.sets) titleLine += ` &nbsp;·&nbsp; ${scheme.sets} &nbsp;·&nbsp; ${scheme.pcts}`;
+      }
     }
     titleLine += ` &nbsp;·&nbsp; ${fmtDuration(s.durationSeconds)}`;
 
