@@ -576,7 +576,7 @@ const WENDLER_SCHEMES = {
   3: { sets: '5 / 3 / 1+',   pcts: '75% / 85% / 95%' },
 };
 
-const RIR_SCHEMES = { 1: '3 RIR', 2: '2 RIR', 3: '2 RIR' };
+const RIR_SCHEMES = { 1: '3 RIR', 2: '2 RIR', 3: '1 RIR', 4: 'Deload' };
 
 // Detect programme from raw compound exerciseNotes
 function detectProgramme(windows) {
@@ -1220,12 +1220,7 @@ function renderExpandedActivity(container, item, catKey, cat) {
     const compounds  = windows.filter(w => COMPOUND_NAMES.has(w.exerciseTitle));
     const assistance = windows.filter(w => !COMPOUND_NAMES.has(w.exerciseTitle));
 
-    const dateShort = (() => {
-      const [y, m, d] = item.summary.date.split('-').map(Number);
-      return `${d} ${MONTHS[m-1]} ${y}`;
-    })();
-
-    let titleLine = `${s.name} &nbsp;·&nbsp; ${dateShort}`;
+    let titleLine = `${s.name}`;
     if (s.block != null && s.week != null) {
       const prog = detectProgramme(windows);
       titleLine += ` &nbsp;·&nbsp; Block ${s.block} &nbsp;·&nbsp; Week ${s.week}`;
@@ -1298,6 +1293,7 @@ function renderExpandedActivity(container, item, catKey, cat) {
 
     container.innerHTML = `
       <div class="gym-detail-wrap dp-exp-gym-wrap">
+        <div class="dp-exp-gym-title">${titleLine}</div>
         <div class="gym-exercise-row">
           ${compounds.map(compoundBlockHTML).join('')}
         </div>
