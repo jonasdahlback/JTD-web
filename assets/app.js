@@ -253,7 +253,7 @@ function drawChart() {
   const wrap   = document.getElementById('chart-scroll');
   const wrapW  = wrap.clientWidth;
 
-  if (currentView === 'day') {
+  if (currentView === 'day' || currentView === 'week') {
     const barSlot = DAY_BAR_WIDTH + DAY_BAR_GAP;
     canvasW = Math.max(wrapW, CHART_PAD_SIDE * 2 + n * barSlot);
   } else {
@@ -278,7 +278,7 @@ function drawChart() {
 
   // Bar slot width
   let slotW, barW;
-  if (currentView === 'day') {
+  if (currentView === 'day' || currentView === 'week') {
     slotW = DAY_BAR_WIDTH + DAY_BAR_GAP;
     barW  = DAY_BAR_WIDTH;
   } else {
@@ -375,8 +375,8 @@ function drawChart() {
     }
   }
 
-  // Scroll to right on day view initial load
-  if (currentView === 'day' && !canvas._scrolled) {
+  // Scroll to right on day/week view initial load
+  if ((currentView === 'day' || currentView === 'week') && !canvas._scrolled) {
     canvas._scrolled = true;
     requestAnimationFrame(() => {
       const scroll = document.getElementById('chart-scroll');
@@ -1039,15 +1039,15 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
       const cameraIcon = hasPhotos ? `<span class="dp-row-camera"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 3L6.5 1.5h3L10.5 3H13a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="8" cy="7.5" r="2" stroke="currentColor" stroke-width="1.2"/></svg></span>` : '';
       barContent = `
         <div class="dp-row-left">
-          <div class="dp-row-date">${dateStr}</div>
-          <div class="dp-row-name-inline">
+          <div class="dp-row-date dp-row-toggle">${dateStr}</div>
+          <div class="dp-row-name-inline dp-row-toggle">
             <span class="dp-row-name-text">${displayName}</span>
             <span class="dp-row-inline-stats">${buildRunWalkInlineStats(s)}</span>
             ${cameraIcon}
             ${kmStr ? `<span class="dp-row-km">${kmStr}</span>` : ''}
           </div>
         </div>
-        <div class="dp-row-chevron">›</div>`;
+        <div class="dp-row-chevron dp-row-toggle">›</div>`;
 
     } else if (catKey === 'gym') {
       const _gs       = item.summary;
@@ -1065,13 +1065,13 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
       const { compoundsHTML, assistHTML } = buildGymBarParts(item);
       barContent = `
         <div class="dp-row-left dp-row-left-gym">
-          <div class="dp-row-date">${dateStr}</div>
-          <div class="dp-row-gym-title">${displayName} ${progLabel}</div>
-          <div class="dp-row-gym-exercises">
+          <div class="dp-row-date dp-row-toggle">${dateStr}</div>
+          <div class="dp-row-gym-title dp-row-toggle">${displayName} ${progLabel}</div>
+          <div class="dp-row-gym-exercises dp-row-toggle">
             <div class="dp-row-gym-compounds-wrap">${compoundsHTML}</div>${assistHTML ? `<span class="dp-row-gym-assist-inline">${assistHTML}</span>` : ''}
           </div>
         </div>
-        <div class="dp-row-chevron">›</div>`;
+        <div class="dp-row-chevron dp-row-toggle">›</div>`;
 
     } else if (catKey === 'acc') {
       // Name + duration stacked left; exercise blocks flow to the right
@@ -1162,23 +1162,27 @@ function renderDetailAggregate(panel, bk, catKey, activities, cat) {
     row.classList.add('dp-row-active');
     renderExpandedActivity(expandEl, sorted[idx], catKey, cat);
     expandEl.classList.add('open');
+    const expTitle = expandEl.querySelector('.dp-exp-gym-title');
+    if (expTitle) {
+      expTitle.style.cursor = 'pointer';
+      expTitle.addEventListener('click', () => { collapseRow(row); updateExpandAllBtn(); });
+    }
   }
 
   function collapseRow(row) {
     const idx = parseInt(row.dataset.idx);
     const expandEl = document.getElementById(`dp-expand-${idx}`);
     if (!row.classList.contains('dp-row-active')) return;
+    const mapEl = expandEl.querySelector('.dp-exp-map');
+    if (mapEl && mapEl._leafletMap) { mapEl._leafletMap.remove(); mapEl._leafletMap = null; }
     expandEl.classList.remove('open');
     expandEl.innerHTML = '';
     row.classList.remove('dp-row-active');
-    if (window._leafletMap) { window._leafletMap.remove(); window._leafletMap = null; }
   }
 
   rows.forEach(row => {
-    const expandEl = document.getElementById(`dp-expand-${row.dataset.idx}`);
-    if (expandEl) expandEl.addEventListener('click', () => row.click());
-
-    row.addEventListener('click', () => {
+    row.addEventListener('click', e => {
+      if (!e.target.closest('.dp-row-toggle')) return;
       if (row.classList.contains('dp-row-active')) {
         collapseRow(row);
       } else {
@@ -1310,23 +1314,28 @@ function renderExpandedActivity(container, item, catKey, cat) {
   const photos    = (s.photoFilenames || []);
   const hasPhotos = photos.length > 0;
 
-  let cols = 1;
-  if (hasMap)    cols++;
-  if (hasPhotos) cols++;
-  const gridStyle = `grid-template-columns: repeat(${cols}, 1fr)`;
+  // Always three tiles: map, stats, photos. Missing map/photos show embossed placeholders.
+  const gridStyle = `grid-template-columns: repeat(3, 1fr)`;
 
   const displayName = s.stravaName ? `${s.name} — ${s.stravaName}` : s.name;
   const statsHTML   = buildStatsHTML(s, item.raw, catKey);
   const zonesHTML   = buildZonesHTML(s, catKey);
   const photosHTML  = buildPhotosHTML(photos);
 
-  const mapCol    = hasMap    ? `<div class="dp-col dp-col-map dp-exp-map" id="dp-map-container"></div>` : '';
+  const mapPlaceholder = `<svg class="dp-placeholder-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>`;
+  const camPlaceholder = `<svg class="dp-placeholder-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6l1.5-2.5h5L16 6h4a1.5 1.5 0 0 1 1.5 1.5v11A1.5 1.5 0 0 1 20 20H4a1.5 1.5 0 0 1-1.5-1.5v-11A1.5 1.5 0 0 1 4 6h4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3.2" stroke="currentColor" stroke-width="1.3"/></svg>`;
+
+  const mapCol    = hasMap
+    ? `<div class="dp-col dp-col-map dp-exp-map"></div>`
+    : `<div class="dp-col dp-col-placeholder">${mapPlaceholder}</div>`;
   const statsCol  = `<div class="dp-col dp-col-stats"><div class="dp-stat-name">${displayName}</div><div class="dp-stat-grid">${statsHTML}</div>${zonesHTML}</div>`;
-  const photosCol = hasPhotos ? `<div class="dp-col dp-col-photos">${photosHTML}</div>` : '';
+  const photosCol = hasPhotos
+    ? `<div class="dp-col dp-col-photos">${photosHTML}</div>`
+    : `<div class="dp-col dp-col-placeholder">${camPlaceholder}</div>`;
 
   container.innerHTML = `
     <div class="dp-grid dp-exp-grid" style="${gridStyle}">
-      ${[mapCol, statsCol, photosCol].filter(Boolean).join('')}
+      ${[mapCol, statsCol, photosCol].join('')}
     </div>`;
 
   if (hasPhotos) {
@@ -1341,8 +1350,9 @@ function renderExpandedActivity(container, item, catKey, cat) {
   }
 
   if (hasMap) {
-    if (window._leafletMap) { window._leafletMap.remove(); window._leafletMap = null; }
-    requestAnimationFrame(() => initMap(item.gpsTrack, cat.color));
+    const mapEl = container.querySelector('.dp-exp-map');
+    if (mapEl && mapEl._leafletMap) { mapEl._leafletMap.remove(); mapEl._leafletMap = null; }
+    requestAnimationFrame(() => initMap(item.gpsTrack, cat.color, mapEl));
   }
 }
 
@@ -1416,8 +1426,8 @@ function buildPhotosHTML(photos) {
   return `<div class="dp-mosaic ${cls}">${thumbs}</div>`;
 }
 
-function initMap(track, color) {
-  const container = document.getElementById('dp-map-container');
+function initMap(track, color, containerEl) {
+  const container = containerEl || document.getElementById('dp-map-container');
   if (!container) return;
 
   // Load Leaflet if not already loaded
@@ -1440,6 +1450,7 @@ function renderMap(container, track, color) {
   const L   = window.L;
   const map = L.map(container, { zoomControl: true, attributionControl: false });
   window._leafletMap = map;
+  container._leafletMap = map;
 
   // CartoDB tiles — work locally and on GitHub Pages
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -1672,6 +1683,27 @@ async function loadData() {
   renderHeaderStats();
   renderLegend();
   drawChart();
+
+  // On first load the canvas can be drawn before the browser has laid out
+  // #chart-scroll, so its width (and thus the day-view canvas width) is wrong
+  // and there is nothing to scroll. Redraw once layout is ready, then pin the
+  // day view to the most recent activity, re-asserting across a few frames.
+  if (currentView === 'day' || currentView === 'week') {
+    const pin = () => {
+      const scroll = document.getElementById('chart-scroll');
+      const canvas = document.getElementById('chart-canvas');
+      if (canvas) canvas._scrolled = true; // suppress in-draw scroll race
+      drawChart();
+      if (scroll) scroll.scrollLeft = scroll.scrollWidth;
+    };
+    let tries = 0;
+    const settle = () => {
+      pin();
+      tries++;
+      if (tries < 8) requestAnimationFrame(settle);
+    };
+    requestAnimationFrame(settle);
+  }
 }
 
 loadData();
