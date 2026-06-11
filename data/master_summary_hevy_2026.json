@@ -24370,5 +24370,1103 @@
       ],
       "samples": []
     }
+  },
+  {
+    "summary": {
+      "activityId": "d41afd8b2e9f9e96",
+      "source": "hevy",
+      "date": "2026-06-01",
+      "startTime": "2026-06-01T18:05:00",
+      "name": "Gym Day 1",
+      "stravaName": null,
+      "activityType": "gym",
+      "durationSeconds": 6240,
+      "distanceKm": null,
+      "avgHrBpm": null,
+      "maxHrBpm": null,
+      "minHrBpm": null,
+      "hrZones": {
+        "z1Seconds": null,
+        "z2Seconds": null,
+        "z3Seconds": null,
+        "z4Seconds": null,
+        "z5Seconds": null
+      },
+      "hrSource": null,
+      "zoneConfig": {
+        "z1Max": 122,
+        "z2Min": 123,
+        "z2Max": 136,
+        "z3Min": 137,
+        "z3Max": 166,
+        "z4Min": 167,
+        "z4Max": 174,
+        "z5Min": 175
+      },
+      "elevationGainM": null,
+      "elevationLossM": null,
+      "elevationDataReliable": null,
+      "avgPaceMinPerKm": null,
+      "calories": null,
+      "cadenceAvg": null,
+      "cadenceMax": null,
+      "repetitionCount": 229,
+      "epoc": null,
+      "peakTrainingEffect": null,
+      "recoveryTimeSeconds": null,
+      "trainingStressScore": null,
+      "notes": null,
+      "device": "hevy",
+      "photoFilenames": [],
+      "block": 2,
+      "week": 1
+    },
+    "gpsTrack": null,
+    "raw": {
+      "source": "hevy_api",
+      "header": {},
+      "windows": [
+        {
+          "exerciseTitle": "Deadlift (Barbell)",
+          "supersetId": null,
+          "exerciseNotes": "RIRB2W1",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "warmup",
+              "weightKg": 45,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "warmup",
+              "weightKg": 55,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "warmup",
+              "weightKg": 65,
+              "reps": 3,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 3,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 4,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 5,
+              "setType": "normal",
+              "weightKg": 92.5,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 6,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Overhead Press (Barbell)",
+          "supersetId": null,
+          "exerciseNotes": "RIRB2W1",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "warmup",
+              "weightKg": 20,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "warmup",
+              "weightKg": 25,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "warmup",
+              "weightKg": 30,
+              "reps": 3,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 3,
+              "setType": "normal",
+              "weightKg": 35,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 4,
+              "setType": "normal",
+              "weightKg": 35,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 5,
+              "setType": "normal",
+              "weightKg": 35,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 6,
+              "setType": "normal",
+              "weightKg": 35,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Ring Pull Up",
+          "supersetId": 3,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 85.0,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 85.0,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 85.0,
+              "reps": 6,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Bulgarian Split Squat",
+          "supersetId": 3,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 24,
+              "reps": 10,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 24,
+              "reps": 10,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 24,
+              "reps": 10,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Hanging Leg Raise",
+          "supersetId": 2,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 21.25,
+              "reps": 4,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 21.25,
+              "reps": 4,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 21.25,
+              "reps": 5,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Chest Dip",
+          "supersetId": 2,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 85.0,
+              "reps": 12,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 85.0,
+              "reps": 12,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 85.0,
+              "reps": 12,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Seated Calf Raise",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 68,
+              "reps": 17,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 65,
+              "reps": 17,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 68,
+              "reps": 17,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Standing Calf Raise (Machine)",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": 11,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": 12,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": 12,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Isometric Calf Hold Gym Bent",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 68,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 60,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 68,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 60,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Isometric Calf Hold Gym Straight",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 60,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 95,
+              "reps": null,
+              "distanceKm": null,
+              "durationSeconds": 60,
+              "rpe": null
+            }
+          ]
+        }
+      ],
+      "samples": []
+    }
+  },
+  {
+    "summary": {
+      "activityId": "c92e3c816883c3c9",
+      "source": "hevy",
+      "date": "2026-06-02",
+      "startTime": "2026-06-02T06:03:00",
+      "name": "MOBO FeetFocus 1",
+      "stravaName": null,
+      "activityType": "gym",
+      "durationSeconds": 1620,
+      "distanceKm": null,
+      "avgHrBpm": null,
+      "maxHrBpm": null,
+      "minHrBpm": null,
+      "hrZones": {
+        "z1Seconds": null,
+        "z2Seconds": null,
+        "z3Seconds": null,
+        "z4Seconds": null,
+        "z5Seconds": null
+      },
+      "hrSource": null,
+      "zoneConfig": {
+        "z1Max": 122,
+        "z2Min": 123,
+        "z2Max": 136,
+        "z3Min": 137,
+        "z3Max": 166,
+        "z4Min": 167,
+        "z4Max": 174,
+        "z5Min": 175
+      },
+      "elevationGainM": null,
+      "elevationLossM": null,
+      "elevationDataReliable": null,
+      "avgPaceMinPerKm": null,
+      "calories": null,
+      "cadenceAvg": null,
+      "cadenceMax": null,
+      "repetitionCount": 194,
+      "epoc": null,
+      "peakTrainingEffect": null,
+      "recoveryTimeSeconds": null,
+      "trainingStressScore": null,
+      "notes": null,
+      "device": "hevy",
+      "photoFilenames": [],
+      "block": null,
+      "week": null
+    },
+    "gpsTrack": null,
+    "raw": {
+      "source": "hevy_api",
+      "header": {},
+      "windows": [
+        {
+          "exerciseTitle": "Foot Band Twist",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 26,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 28,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Foor Rocks Evens",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 27,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 27,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Foor Rocks Odds",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 27,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 27,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Pass Around",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 11,
+              "reps": 14,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 11,
+              "reps": 14,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Everted Airplane",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 2,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 2,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        }
+      ],
+      "samples": []
+    }
+  },
+  {
+    "summary": {
+      "activityId": "3f67fab61c513498",
+      "source": "hevy",
+      "date": "2026-06-03",
+      "startTime": "2026-06-03T05:58:00",
+      "name": "Toepro Advanced",
+      "stravaName": null,
+      "activityType": "gym",
+      "durationSeconds": 1500,
+      "distanceKm": null,
+      "avgHrBpm": null,
+      "maxHrBpm": null,
+      "minHrBpm": null,
+      "hrZones": {
+        "z1Seconds": null,
+        "z2Seconds": null,
+        "z3Seconds": null,
+        "z4Seconds": null,
+        "z5Seconds": null
+      },
+      "hrSource": null,
+      "zoneConfig": {
+        "z1Max": 122,
+        "z2Min": 123,
+        "z2Max": 136,
+        "z3Min": 137,
+        "z3Max": 166,
+        "z4Min": 167,
+        "z4Max": 174,
+        "z5Min": 175
+      },
+      "elevationGainM": null,
+      "elevationLossM": null,
+      "elevationDataReliable": null,
+      "avgPaceMinPerKm": null,
+      "calories": null,
+      "cadenceAvg": null,
+      "cadenceMax": null,
+      "repetitionCount": 112,
+      "epoc": null,
+      "peakTrainingEffect": null,
+      "recoveryTimeSeconds": null,
+      "trainingStressScore": null,
+      "notes": null,
+      "device": "hevy",
+      "photoFilenames": [],
+      "block": null,
+      "week": null
+    },
+    "gpsTrack": null,
+    "raw": {
+      "source": "hevy_api",
+      "header": {},
+      "windows": [
+        {
+          "exerciseTitle": "TP Single Leg Risers",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "TP Tib Posterior risers",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "TP Peroneal Risers",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        }
+      ],
+      "samples": []
+    }
+  },
+  {
+    "summary": {
+      "activityId": "762121b8ecd4c753",
+      "source": "hevy",
+      "date": "2026-06-09",
+      "startTime": "2026-06-09T05:56:00",
+      "name": "MOBO FeetFocus 1",
+      "stravaName": null,
+      "activityType": "gym",
+      "durationSeconds": 1920,
+      "distanceKm": null,
+      "avgHrBpm": null,
+      "maxHrBpm": null,
+      "minHrBpm": null,
+      "hrZones": {
+        "z1Seconds": null,
+        "z2Seconds": null,
+        "z3Seconds": null,
+        "z4Seconds": null,
+        "z5Seconds": null
+      },
+      "hrSource": null,
+      "zoneConfig": {
+        "z1Max": 122,
+        "z2Min": 123,
+        "z2Max": 136,
+        "z3Min": 137,
+        "z3Max": 166,
+        "z4Min": 167,
+        "z4Max": 174,
+        "z5Min": 175
+      },
+      "elevationGainM": null,
+      "elevationLossM": null,
+      "elevationDataReliable": null,
+      "avgPaceMinPerKm": null,
+      "calories": null,
+      "cadenceAvg": null,
+      "cadenceMax": null,
+      "repetitionCount": 154,
+      "epoc": null,
+      "peakTrainingEffect": null,
+      "recoveryTimeSeconds": null,
+      "trainingStressScore": null,
+      "notes": null,
+      "device": "hevy",
+      "photoFilenames": [],
+      "block": null,
+      "week": null
+    },
+    "gpsTrack": null,
+    "raw": {
+      "source": "hevy_api",
+      "header": {},
+      "windows": [
+        {
+          "exerciseTitle": "Foot Band Twist",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 20,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 20,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Foor Rocks Evens",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 24,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 20,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Foor Rocks Odds",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 20,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 20,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Pass Around",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": 11,
+              "reps": 14,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": 11,
+              "reps": 14,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "Everted Airplane",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 2,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        }
+      ],
+      "samples": []
+    }
+  },
+  {
+    "summary": {
+      "activityId": "dea5873bb860b2f9",
+      "source": "hevy",
+      "date": "2026-06-10",
+      "startTime": "2026-06-10T18:15:00",
+      "name": "Toepro Advanced",
+      "stravaName": null,
+      "activityType": "gym",
+      "durationSeconds": 2100,
+      "distanceKm": null,
+      "avgHrBpm": null,
+      "maxHrBpm": null,
+      "minHrBpm": null,
+      "hrZones": {
+        "z1Seconds": null,
+        "z2Seconds": null,
+        "z3Seconds": null,
+        "z4Seconds": null,
+        "z5Seconds": null
+      },
+      "hrSource": null,
+      "zoneConfig": {
+        "z1Max": 122,
+        "z2Min": 123,
+        "z2Max": 136,
+        "z3Min": 137,
+        "z3Max": 166,
+        "z4Min": 167,
+        "z4Max": 174,
+        "z5Min": 175
+      },
+      "elevationGainM": null,
+      "elevationLossM": null,
+      "elevationDataReliable": null,
+      "avgPaceMinPerKm": null,
+      "calories": null,
+      "cadenceAvg": null,
+      "cadenceMax": null,
+      "repetitionCount": 112,
+      "epoc": null,
+      "peakTrainingEffect": null,
+      "recoveryTimeSeconds": null,
+      "trainingStressScore": null,
+      "notes": null,
+      "device": "hevy",
+      "photoFilenames": [],
+      "block": null,
+      "week": null
+    },
+    "gpsTrack": null,
+    "raw": {
+      "source": "hevy_api",
+      "header": {},
+      "windows": [
+        {
+          "exerciseTitle": "TP Single Leg Risers",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 2,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "TP Tib Posterior risers",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        },
+        {
+          "exerciseTitle": "TP Peroneal Risers",
+          "supersetId": null,
+          "exerciseNotes": "",
+          "sets": [
+            {
+              "setIndex": 0,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            },
+            {
+              "setIndex": 1,
+              "setType": "normal",
+              "weightKg": null,
+              "reps": 16,
+              "distanceKm": null,
+              "durationSeconds": null,
+              "rpe": null
+            }
+          ]
+        }
+      ],
+      "samples": []
+    }
   }
 ]
